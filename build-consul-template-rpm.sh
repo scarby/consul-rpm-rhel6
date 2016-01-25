@@ -30,7 +30,7 @@ case "${ARCH}" in
         ;;
 esac
 
-URL="https://releases.hashicorp.com/${NAME}/download/${VERSION}/${ZIP}"
+URL="https://releases.hashicorp.com/${NAME}/${VERSION}/${ZIP}"
 echo $"Creating ${NAME} RPM build file version ${VERSION}"
 
 # fetching consul
