@@ -45,7 +45,7 @@ rm -rf consul/target/*
 # create target structure
 mkdir -p consul/target/usr/local/bin
 mkdir -p target/etc/init.d
-cp -r consul/sources/consul/etc/ target/
+cp -r sources/consul/etc/ consul/target/
 
 # unzip
 unzip -qq ${ZIP} -d consul/target/usr/local/bin/
