@@ -19,10 +19,10 @@ fi
 #https://github.com/hashicorp/consul-template/releases/download/v0.2.0/consul-template_0.2.0_linux_amd64.tar.gz
 case "${ARCH}" in
     i386)
-        ZIP=${NAME}_${VERSION}_linux_386.tar.gz
+        ZIP=${NAME}_${VERSION}_linux_386.zip
         ;;
     x86_64)
-       ZIP=${NAME}_${VERSION}_linux_amd64.tar.gz
+       ZIP=${NAME}_${VERSION}_linux_amd64.zip
         ;;
     *)
         echo $"Unknown architecture ${ARCH}" >&2
@@ -47,7 +47,9 @@ mkdir -p consul-templates/target/usr/local/bin/
 cp -r sources/${NAME}/etc/ target/
 
 # unzip
-tar -xf ${ZIP} -O > consul-templates/target/usr/local/bin/${NAME}
+#tar -xf ${ZIP} -O > consul-templates/target/usr/local/bin/${NAME}
+unzip -qq ${ZIP} -d consul-templates/target/usr/local/bin/${NAME}
+
 rm ${ZIP}
 
 # create rpm
