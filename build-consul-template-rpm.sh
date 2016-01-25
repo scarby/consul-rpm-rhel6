@@ -1,6 +1,8 @@
 #!/bin/bash
 #
 
+set -e
+
 if [[ -z "$1" ]]; then
   echo $"Usage: $0 <VERSION> [ARCH]"
   exit 1
@@ -28,7 +30,7 @@ case "${ARCH}" in
         ;;
 esac
 
-URL="https://github.com/hashicorp/${NAME}/releases/download/v${VERSION}/${ZIP}"
+URL="https://releases.hashicorp.com/${NAME}/download/v${VERSION}/${ZIP}"
 echo $"Creating ${NAME} RPM build file version ${VERSION}"
 
 # fetching consul
@@ -38,14 +40,14 @@ curl -k -L -o $ZIP $URL || {
 }
 
 # clear target foler
-rm -rf target/*
+rm -rf consul-templates/target/*
 
 # create target structure
-mkdir -p target/usr/local/bin/
-cp -r sources/${NAME}/etc/ target/
+mkdir -p consul-templates/target/usr/local/bin/
+cp -r consul-templates/sources/${NAME}/etc/ target/
 
 # unzip
-tar -xf ${ZIP} -O > target/usr/local/bin/${NAME}
+tar -xf ${ZIP} -O > consul-templates/target/usr/local/bin/${NAME}
 rm ${ZIP}
 
 # create rpm
@@ -61,4 +63,4 @@ fpm -s dir -t rpm -f \
        --url "https://github.com/hypoport/consul-rpm-rhel6" \
        usr/ etc/
 
-rm -rf target/etc target/usr
+rm -rf consul-templates/target/etc consul-templates/target/usr
