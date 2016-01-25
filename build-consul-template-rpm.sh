@@ -44,7 +44,7 @@ rm -rf consul-templates/target/*
 
 # create target structure
 mkdir -p consul-templates/target/usr/local/bin/
-cp -r sources/${NAME}/etc/ target/
+cp -r sources/${NAME}/etc/ consul-templates/target/
 
 # unzip
 #tar -xf ${ZIP} -O > consul-templates/target/usr/local/bin/${NAME}
