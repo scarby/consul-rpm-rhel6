@@ -54,7 +54,7 @@ rm ${ZIP}
 
 # create rpm
 fpm -s dir -t rpm -f \
-       -C target -n ${NAME} \
+       -C consul-templates/target -n ${NAME} \
        -v ${VERSION} \
        -p target \
        -d "consul" \
