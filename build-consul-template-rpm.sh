@@ -56,7 +56,7 @@ rm ${ZIP}
 fpm -s dir -t rpm -f \
        -C consul-templates/target -n ${NAME} \
        -v ${VERSION} \
-       -p target \
+       -p consul-templates/target/consul-template.rpm \
        -d "consul" \
        --after-install spec/template_install.spec \
        --after-remove spec/template_uninstall.spec \
