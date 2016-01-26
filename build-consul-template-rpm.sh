@@ -48,7 +48,7 @@ cp -r sources/${NAME}/etc/ consul-templates/target/
 
 # unzip
 #tar -xf ${ZIP} -O > consul-templates/target/usr/local/bin/${NAME}
-unzip -qq ${ZIP} -d consul-templates/target/usr/local/bin/${NAME}
+unzip -qq ${ZIP} -d consul-templates/target/usr/local/bin/
 
 rm ${ZIP}
 
